@@ -430,7 +430,7 @@ function calcAvgHashRate(){
 
 		updateText('avgDifficulty', getReadableDifficultyString(avgDiff, 0).toString());
 		updateText('avgHashrate', getReadableHashRateString(avgDiff / blockTargetInterval));
-        //updateText('blockSolveTime', getReadableTime(lastStats.difficulty / avgHashRate));
+        updateText('blockSolveTime', getReadableTime(lastStats.difficulty / avgHashRate));
 }
 
 function renderLastBlock(){
@@ -464,7 +464,7 @@ $.ajax({
 			cache: 'false',
 			success: function(data){
 				var block = data.result.block;
-				lastReward = parseInt(block.baseReward);
+				lastReward = parseInt(block.baseReward / 100);
 			}
 		});
     }
@@ -489,7 +489,7 @@ $.ajax({
             var hashRate = parseFloat($('#calcHashRate').val()) * rateUnit;
             var profit = (hashRate * 86400 / avgDiff /*lastStats.difficulty*/) * lastReward;
             if (profit) {
-                updateText('calcHashAmount', profit);
+                updateText('calcHashAmount', profit.toFixed(2));
                 return;
             }
         }

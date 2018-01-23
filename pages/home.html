@@ -219,10 +219,10 @@ $.ajax({
 			success: function(data){
 				block = data.result.block;
 				//NOTE Removed getReadableCoins
-				updateText('totalCoins', block.alreadyGeneratedCoins);
-				updateText('emissionPercent', (block.alreadyGeneratedCoins / 10000000000000000000 * 100).toFixed(4));
+				updateText('totalCoins', (block.alreadyGeneratedCoins / 100));
+				updateText('emissionPercent', (block.alreadyGeneratedCoins / 100000000000000 * 100).toFixed(4));
 				//NOTE I altered this because it wasn't working properly
-				updateText('currentReward', block.baseReward, 4);
+				updateText('currentReward', block.baseReward / 100, 2);
 			}
 		});
     }

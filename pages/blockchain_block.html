@@ -96,13 +96,13 @@
 				updateText('block.effectiveTxsMedian', block.effectiveSizeMedian);
 				updateText('block.rewardPenalty', block.penalty*100 + "%");
                 //NOTE Removed getReadableCoins
-				updateText('block.baseReward', block.baseReward);
+				updateText('block.baseReward', block.baseReward / 100);
                 //NOTE Removed getReadableCoins
 				updateText('block.transactionsFee', block.totalFeeAmount);
                 //NOTE Removed getReadableCoins
-				updateText('block.reward', block.reward);
+				updateText('block.reward', block.reward / 100);
                 //NOTE Removed getReadableCoins
-				updateText('block.totalCoins', block.alreadyGeneratedCoins);
+				updateText('block.totalCoins', block.alreadyGeneratedCoins / 100);
 				updateText('block.totalTransactions', block.alreadyGeneratedTransactions);
 				renderTransactions(block.transactions);
 

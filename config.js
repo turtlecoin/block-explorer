@@ -1,4 +1,4 @@
-var api = 'PUT_YOUR_DAEMON_IP_HERE';
+var api = 'PUT_YOUR_DAEMON_HERE';
 var blockTargetInterval = 240;
 var coinUnits = 1000000000000;
 var symbol = 'TRTL';
