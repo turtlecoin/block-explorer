@@ -2,9 +2,9 @@ Forked From https://github.com/Karbovanets/Karbowanec-Blockchain-Explorer
 
 # Turtle Blocks - A Turtle Coin Blockchain Explorer
 ![Turtle Coin Logo](/images/green_logo.png?raw=true "Turtle coin logo")
-# This repository requires the latest dev-master of turtle coin
-    The RpcServer does not output the difficulty by default on `f_blocks_list_json`
-    Its been added to turtle coin latest master, you can view the PR here
+# This repository requires the latest version of turtle coin (NOT COMPATIBLE WITH 0.2.2)
+    The RpcServer did not output the difficulty by default on `f_blocks_list_json`.
+    The fix has now been added to turtle coin, you can view the PR here
     https://github.com/turtlecoin/turtlecoin/pull/7
 
     Without this update it will require an additional request to the daemon per block
