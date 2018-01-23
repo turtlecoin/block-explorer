@@ -19,8 +19,7 @@ Most of my changes can be viewed by searching for "NOTE"
 
 ## Changes
 - Updated the API's to work
-- Removed white version of the site, because i didnt have a pure green logo +
-    nobodys eyes desrve that (could easily be re-enabled)
+- Removed white version of the site, because nobodys eyes desrve that (could easily be re-enabled)
 
 - Updated a foreach loop on getPoolTransactions() on homepage because it didnt
     work
