@@ -35,5 +35,4 @@ Most of my changes can be viewed by searching for "NOTE"
     returning now
 
 ##  Haven't done / problems
- - Removed alot of instances of getReadableCoins as I couldn't get it to work
-   but only saw one instance where it caused a major issue
+ - Removed alot of instances of getReadableCoins 
