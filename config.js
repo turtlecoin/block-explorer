@@ -34,7 +34,6 @@ var networkStat2 = {
         ["turtle.atpool.party", "http://turtle-eu.atpool.party:8117"],
         ["ny.minetrtl.us", "http://ny.minetrtl.us:8117"],
         ["z-pool.com", "http://z-pool.com:8117"],
-        ["xk.is", "https://xk.is/api"]
-
-		]
+        ["xk.is", "https://xk.is/api"]	
+    ]
 };
