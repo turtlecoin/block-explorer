@@ -19,23 +19,22 @@
 	}
 </style>
 
-
 <div class="row">
 	<div class="col-sm-12 col-md-6">
 		<div class="panel panel-default" id="network-stats">
 		  <div class="panel-heading">
-			<h3 class="panel-title"><i class="fa fa-tachometer"></i> Статистика</h3>
+			<h3 class="panel-title"><i class="fa fa-tachometer"></i> Stats</h3>
 		  </div>
 		  <div class="panel-body">
 			<div class="row">
 				<div class="col-sm-6 col-md-6">
 					<ul class="nav nav-pills nav-stacked">
 					
-						<li><a href="#" data-toggle="tooltip" data-placement="top" data-original-title="Загальна швидкість усіх відомих пулів, перелічених нижче."><i class="fa fa-tachometer"></i> Швидк. пулів: <span id="networkHashrate"></span></a></li>
+						<li><a href="#" data-toggle="tooltip" data-placement="top" data-original-title="The overall hash rate of all known pools listed below."><i class="fa fa-tachometer"></i> Pools speed: <span id="networkHashrate"></span></a></li>
 						
-						<li><a href="#" data-toggle="tooltip" data-placement="bottom" data-original-title="Розрахункова поточна швидкість в мережі. Розраховується на основі поточної складності."><i class="fa fa-tachometer"></i> Швид. мережі: <span id="totalPoolsHashrate"></span></a></li>
+						<li><a href="#" data-toggle="tooltip" data-placement="bottom" data-original-title="Current estimated network hash rate. Calculated by current difficulty."><i class="fa fa-tachometer"></i> Network speed: <span id="totalPoolsHashrate"></span></a></li>
 						
-						<li><a href="#" data-toggle="tooltip" data-placement="bottom" data-original-title="К-ть майнерів на всіх пулах."><i class="fa fa-group"></i> Всього майнерів: <span id="total_miners"></span></a></li>
+						<li><a href="#" data-toggle="tooltip" data-placement="bottom" data-original-title="Number of miners in all pools"><i class="fa fa-group"></i> Total miners: <span id="total_miners"></span></a></li>
 						
 						
 					</ul>
@@ -43,11 +42,11 @@
 				<div class="col-sm-6 col-md-6">
 					<ul class="nav nav-pills nav-stacked">
 					
-						<li><a href="#" data-toggle="tooltip" data-placement="top" data-original-title="Складність для наступного блоку. Це коефіцієнт, при якому за поточної швидкості хешування, блок буде карбуватися з інтервалом&nbsp;4&nbsp;хв."><i class="fa fa-unlock-alt"></i> Поточна складність: <span id="networkDifficulty"></span></a></li>
+						<li><a href="#" data-toggle="tooltip" data-placement="top" data-original-title="Difficulty for next block. Ratio at which at the current hashing speed blocks will be mined with 4 minutes interval."><i class="fa fa-unlock-alt"></i> Current difficulty: <span id="networkDifficulty"></span></a></li>
 						
-						<li><a href="#" data-toggle="tooltip" data-placement="bottom" data-original-title="Середня складність за період останніх 30 блоків."><i class="fa fa-lock"></i> Середня складність: <span id="avgDifficulty"></span></a></li>
+						<li><a href="#" data-toggle="tooltip" data-placement="bottom" data-original-title="Average difficulty by last 30 blocks."><i class="fa fa-lock"></i> Average difficulty: <span id="avgDifficulty"></span></a></li>
 						
-						<li><a href="#" data-toggle="tooltip" data-placement="bottom" data-original-title="Розрахункова швидкість операцій хешування в мережі. Розраховується на основі середньої складності."><i class="fa fa-tachometer"></i> Сер. швидкість: <span id="avgHashrate"></span></a></li>
+						<li><a href="#" data-toggle="tooltip" data-placement="bottom" data-original-title="Average estimated network hash rate. Calculated by average difficulty."><i class="fa fa-tachometer"></i> Average Hashrate: <span id="avgHashrate"></span></a></li>
 						
 					
 					</ul>
@@ -60,14 +59,14 @@
 	<div class="col-sm-12 col-md-6">
 		<div class="panel panel-default" id="network-stats">
 		  <div class="panel-heading">
-			<h3 class="panel-title"><i class="fa fa-tachometer"></i> Калькулятор майнера</h3>
+			<h3 class="panel-title"><i class="fa fa-tachometer"></i> Estimate Mining Profits</h3>
 		  </div>
 		  <div class="panel-body">
 			<div class="row">
 				<div class="col-sm-12 col-md-12">
 					<div id="calcHashHolder">
 						<div class="input-group">
-							<input type="number" class="form-control" id="calcHashRate" placeholder="Вкажіть ваш хешрейт">
+							<input type="number" class="form-control" id="calcHashRate" placeholder="Enter your hash rate">
 							<div class="input-group-btn">
 								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="calcHashDropdown">
 									<span id="calcHashUnit" data-mul="1">KH/s</span> <span class="caret"></span>
@@ -79,7 +78,7 @@
 								</ul>
 							</div>
 							<span class="input-group-addon">=</span>
-							<span class="input-group-addon" id="calcHashResultsHolder"><span id="calcHashAmount"></span> <span id="calcHashSymbol"></span> KRB / день</span>
+							<span class="input-group-addon" id="calcHashResultsHolder"><span id="calcHashAmount"></span> <span id="calcHashSymbol"></span> KRB / day</span>
 						</div>
 					</div>
 				</div>
@@ -89,27 +88,26 @@
 	</div>
 </div>
 
-<div class="container">
-	<div class="row">
-		<div class="table-responsive">
-			<table id="network-hash" class="table table-hover sortable">
-				<thead>
-					<tr id="pools_header">
-						<th><span id="symbol"></span> Пули</th>
-						<th><i class="fa fa-bars"></i> Висота</th>
-						<th><i class="fa fa-tachometer"></i> Хешрейт</th>
-						<th><i class="fa fa-group"></i> Майнери</th>
-						<th><i class="fa fa-money"></i> Комісія</th>
-						<th><i class="fa fa-sign-out"></i> Мін. виплата</th>
-						<th><i class="fa fa-clock-o"></i> Останній блок</th>
-					</tr>
-				</thead>
-				<tbody id="pools_rows">
-				</tbody>
-			</table>
-		</div>
-	</div>
+<br />
+
+<div class="table-responsive">
+    <table id="network-hash" class="table table-hover sortable">
+        <thead>
+            <tr>
+                <th><span id="symbol"></span> Pools</th>
+                <th><i class="fa fa-bars"></i> Height</th>
+                <th><i class="fa fa-tachometer"></i> Hashrate</th>
+                <th><i class="fa fa-group"></i> Miners</th>
+                <th><i class="fa fa-money"></i> Total Fee</th>
+				<th><i class="fa fa-sign-out"></i> Min. Payout</th>
+                <th><i class="fa fa-clock-o"></i> Last Block Found</th>
+            </tr>
+        </thead>
+        <tbody id="pools_rows">
+        </tbody>
+    </table>
 </div>
+
 
 <div class="container">
         <div class="row">
@@ -121,7 +119,7 @@
 
 <br />
 
-<script src="js/Chart.bundle.min.js"></script>
+<script src="/js/Chart.bundle.min.js"></script>
 <script src="/js/sorttable.js"></script>
 <script>
 window.NETWORK_STAT_MAP = new Map(networkStat[symbol.toLowerCase()]);
@@ -251,7 +249,7 @@ function displayChart() {
 	var options = {
 			title: {
 				display: true,
-				text: 'Швидкість пулів'
+				text: 'Known pools hash rate'
 			},
 			tooltips: {
                 enabled: true,
