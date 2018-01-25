@@ -11,7 +11,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 $result = curl_exec($ch);
 $responseData = json_decode($result, TRUE);
 $rewardRaw = $responseData['result']['block_header']['reward'];
-$reward  = number_format($rewardRaw / 1000000000000, 12, ".", "");
+$reward  = number_format($rewardRaw / 100, 2, ".", "");
 print_r($reward);
 curl_close($ch);
 ?>
