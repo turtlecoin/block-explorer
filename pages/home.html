@@ -79,7 +79,7 @@
 			<table class="table table-hover" id="mem_pool_table">
 				<thead>
 				<tr>
-					<th width="30%"><i class="fa fa-clock-o"></i> Date &amp; time</th>
+					<!--<th width="30%"><i class="fa fa-clock-o"></i> Date &amp; time</th>-->
 					<th width="10%"><i class="fa fa-money"></i> Amount</th>
 					<th width="10%"><i class="fa fa-tag"></i> Fee</th>
 					<th width="10%"><i class="fa fa-archive"></i> Size</th>
@@ -218,8 +218,8 @@ $.ajax({
 			success: function(data){
 			block = data.result.block;
 				updateText('totalCoins', getReadableCoins(block.alreadyGeneratedCoins,2));
-				updateText('emissionPercent', (block.alreadyGeneratedCoins / 10000000000000000000 * 100).toFixed(4));
-				updateText('currentReward', getReadableCoins(block.baseReward,4));
+				updateText('emissionPercent', (block.alreadyGeneratedCoins / 100000000000000 * 100).toFixed(4));
+				updateText('currentReward', getReadableCoins(block.baseReward,2));
 			}
 		});
     }
@@ -467,7 +467,7 @@ var xhrGetPool = $.ajax({
             data: JSON.stringify({
                 jsonrpc:"2.0",
                 id: "test",
-                method:"f_pool_json",
+                method:"f_on_transactions_pool_json",
                 params: {
   
                 }
@@ -481,28 +481,30 @@ var xhrGetPool = $.ajax({
 					txsRows.removeChild(txsRows.firstChild);
 				}
 			
-				var rawTxs = data.split('"transactions":"').pop();
-				rawTxs = rawTxs.split('"}}')[0];
+				var rawTxs = data.split('"transactions":[{"').pop();
+				rawTxs = rawTxs.split('}]}}')[0];
 				var txsArray = [];
-				txsArray = rawTxs.split('\n\n');
+				txsArray = rawTxs.split('},{');
 				txsArray.forEach(function(tx, i) {
-					var arrayOfLines = tx.split('\n');
-					var hash = arrayOfLines[0].split(': ').pop();
+					var arrayOfLines = tx.split(',');
+					var hash = arrayOfLines[2].split(':').pop();
 					if(hash != "") {
-						var timestamp = arrayOfLines[10].split(':').pop();
-						var amount = arrayOfLines[8].split(':').pop();
-						var fee = arrayOfLines[9].split(':').pop();
-						var size = arrayOfLines[1].split(':').pop();
+						hash = hash.replace(/^"?(.+?)"?$/,'$1');
+						//var timestamp = arrayOfLines[10].split(':').pop();
+						var amount = arrayOfLines[0].split(':').pop();
+						var fee = arrayOfLines[1].split(':').pop();
+						var size = arrayOfLines[3].split(':').pop();
 						var row = document.createElement('tr');
 						var columns =
-								'<td>' + formatDate(timestamp) + ' (<span class="mtx-ago"></span>)' + '</td>' +
+								//'<td>' + formatDate(timestamp) + ' (<span class="mtx-ago"></span>)' + '</td>' +
 								'<td>' + getReadableCoins(amount, 4, true) + '</td>' +
 								'<td>' + getReadableCoins(fee, 4, true) + '</td>' +
 								'<td>' + size + '</td>' +
-								'<td>' + formatPaymentLink(hash) + '</td>';
+								//'<td>' + formatPaymentLink(hash) + '</td>';
+								'<td>' + hash + '</td>';
 						row.innerHTML = columns;
 						$(txsRows).append(row);
-						$(row).find('.mtx-ago').timeago('update', new Date(timestamp * 1000).toISOString());
+						//$(row).find('.mtx-ago').timeago('update', new Date(timestamp * 1000).toISOString());
 					}
 				});
 				updateText('mempool_count', document.querySelectorAll('#mem_pool_rows tr').length);
