@@ -1,3 +1,10 @@
-# block-explorer
+# TurtleCoin-Blockchain-Explorer
+Block explorer for TurtleCoin CryptoNote based cryptocurrency.
 
-Only submit a PR for 110% completed work. If it is not complete, the next person in line is given a chance to be reviewed. Good luck everyone!
+#### Installation
+
+1) It takes data from daemon TurtleCoind. It should be accessible from the Internet. Run TurtleCoind with open port as follows:
+```bash
+./TurtleCoind --enable-cors=* --enable_blockexplorer --rpc-bind-ip=0.0.0.0 --rpc-bind-port=11898
+```
+2) Just upload to your website and change 'api' variable in config.js to point to your daemon.
