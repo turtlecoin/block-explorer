@@ -1037,11 +1037,11 @@ input,button,select,textarea{
     line-height:inherit
 }
 a{
-    color:#2fa4e7;
+    color:#1b7a43;
     text-decoration:none
 }
 a:hover,a:focus{
-    color:#157ab5;
+    color:#2ecc71;
     text-decoration:underline
 }
 a:focus{
@@ -1109,7 +1109,7 @@ h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{
     font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight:500;
     line-height:1.2;
-    color:#317eac
+    color:#2ecc71
 }
 h1 small,h2 small,h3 small,h4 small,h5 small,h6 small,.h1 small,.h2 small,.h3 small,.h4 small,.h5 small,.h6 small,h1 .small,h2 .small,h3 .small,h4 .small,h5 .small,h6 .small,.h1 .small,.h2 .small,.h3 .small,.h4 .small,.h5 .small,.h6 .small{
     font-weight:normal;
@@ -3864,11 +3864,11 @@ textarea.input-group-sm>.form-control,textarea.input-group-sm>.input-group-addon
 }
 .navbar-default .navbar-nav>li>a:hover,.navbar-default .navbar-nav>li>a:focus{
     color:#ffffff;
-    background-color:#178acc
+    background-color:#1d1d1d
 }
 .navbar-default .navbar-nav>.active>a,.navbar-default .navbar-nav>.active>a:hover,.navbar-default .navbar-nav>.active>a:focus{
     color:#ffffff;
-    background-color:#178acc
+    background-color:#1d1d1d
 }
 .navbar-default .navbar-nav>.disabled>a,.navbar-default .navbar-nav>.disabled>a:hover,.navbar-default .navbar-nav>.disabled>a:focus{
     color:#dddddd;
@@ -5766,13 +5766,13 @@ button.close{
     }
 }
 .navbar-default{
-    background-image:-webkit-linear-gradient(#54b4eb, #2fa4e7 60%, #1d9ce5);
-    background-image:-o-linear-gradient(#54b4eb, #2fa4e7 60%, #1d9ce5);
-    background-image:-webkit-gradient(linear, left top, left bottom, from(#54b4eb), color-stop(60%, #2fa4e7), to(#1d9ce5));
-    background-image:linear-gradient(#54b4eb, #2fa4e7 60%, #1d9ce5);
+    background-image:-webkit-linear-gradient(#2f2f2f, #2f2f2f 60%, #2f2f2f);
+    background-image:-o-linear-gradient(#2f2f2f, #2f2f2f 60%, #2f2f2f);
+    background-image:-webkit-gradient(linear, left top, left bottom, from(#2f2f2f), color-stop(60%, #2f2f2f), to(#2f2f2f));
+    background-image:linear-gradient(#2f2f2f, #2f2f2f 60%, #2f2f2f);
     background-repeat:no-repeat;
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff54b4eb', endColorstr='#ff1d9ce5', GradientType=0);
-    border-bottom:1px solid #178acc;
+    border-bottom:1px solid #2f2f2f;
     -webkit-filter:none;
     filter:none;
     -webkit-box-shadow:0 1px 10px rgba(0,0,0,0.1);
@@ -5900,3 +5900,4 @@ button.close{
 .panel-primary .panel-heading,.panel-success .panel-heading,.panel-warning .panel-heading,.panel-danger .panel-heading,.panel-info .panel-heading,.panel-primary .panel-title,.panel-success .panel-title,.panel-warning .panel-title,.panel-danger .panel-title,.panel-info .panel-title{
     color:#fff
 }
+
