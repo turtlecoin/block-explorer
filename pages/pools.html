@@ -217,7 +217,7 @@ var poolsRefreshed = 0;
         },
         update: function(){
 		updateText('networkHashrate', getReadableHashRateString(lastStats.difficulty / blockTargetInterval) + '/sec');
-		updateText('networkDifficulty', getReadableDifficultyString(lastStats.difficulty, 0).toString());
+		updateText('networkDifficulty', getReadableDifficultyString(lastStats.difficulty, 2).toString());
 		getBlocks();
 		renderLastBlock();
         }
@@ -308,7 +308,7 @@ setInterval(function(){
 					updateText('totalPoolsHashrate', getReadableHashRateString(totalHashrate) + '/sec');
 					updateText('total_miners', totalMiners);
 					updateText('networkHashrate', getReadableHashRateString(lastStats.difficulty / blockTargetInterval) + '/sec');
-					updateText('networkDifficulty', getReadableDifficultyString(lastStats.difficulty, 0).toString());
+					updateText('networkDifficulty', getReadableDifficultyString(lastStats.difficulty, 2).toString());
                 });
 				poolsRefreshed++;
 				if (poolsRefreshed === NETWORK_STAT_MAP.size){ 
@@ -427,7 +427,7 @@ function calcAvgHashRate(){
 		avgDiff = Math.round(sum / Difficulties.length);
 		var avgHashRate = avgDiff / blockTargetInterval;
 		
-		updateText('avgDifficulty', getReadableDifficultyString(avgDiff, 0).toString());
+		updateText('avgDifficulty', getReadableDifficultyString(avgDiff, 2).toString());
 		updateText('avgHashrate', getReadableHashRateString(avgDiff / blockTargetInterval));
         //updateText('blockSolveTime', getReadableTime(lastStats.difficulty / avgHashRate));
 }
