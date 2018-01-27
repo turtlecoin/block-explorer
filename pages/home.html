@@ -701,7 +701,7 @@ function displayDiffChart() {
 					title: function(tooltipItem, data) {
 						var height	= data.datasets[3].data[tooltipItem[0].index];
 						var time = new Date(data.labels[tooltipItem[0].index]).toLocaleString();
-						//return 'Блок №: ' + height + ' - ' + time + '';
+						//return 'Block №: ' + height + ' - ' + time + '';
 						return time + '';
 					},/*
 					label: function(tooltipItem, data) { 
@@ -717,9 +717,9 @@ function displayDiffChart() {
 						
 						var multistringText = [];
   
-						var str1 = diff_swatch + 'Складність: ' + diff + '';
-						var str2 = 'Розмір: ' + size + '';
-						var str3 = 'Транзакції: ' + txcount + '';
+						var str1 = diff_swatch + 'Difficulty: ' + diff + '';
+						var str2 = 'Size: ' + size + '';
+						var str3 = 'Transactions: ' + txcount + '';
   
 						multistringText.push(str1);
 						multistringText.push(str2);
