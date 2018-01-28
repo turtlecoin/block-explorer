@@ -516,8 +516,8 @@ var xhrGetPool = $.ajax({
 function displayDiffChart() {
 	var ctx = document.getElementById("difficultyChart");
 	var chartData = {
-			labels: [].concat(Blocks),
-			//labels: [].concat(formatDate(Timestamps)).reverse(),
+			//labels: [].concat(Blocks).reverse(),
+			labels: [].concat(formatDate(Timestamps)).reverse(),
 			datasets: [
 			  {
 				data: [].concat(Blocks).reverse(),
@@ -760,8 +760,8 @@ function refreshChart() {
 				sizes.push(size);				
 				times.push(time);				
 		}
-		diffChart.data.labels = labels;
-		//diffChart.data.labels = times.reverse();
+		//diffChart.data.labels = labels.reverse();
+		diffChart.data.labels = times.reverse();
 		diffChart.data.datasets[0].data = labels.reverse();
 		diffChart.data.datasets[1].data = diffs.reverse();
 		diffChart.data.datasets[2].data = txsnr.reverse();
@@ -771,8 +771,8 @@ function refreshChart() {
 }	
 
 function loadMoreChart() {
-	diffChart.data.labels = [].concat(Blocks).reverse();
-	//diffChart.data.labels = [].concat(Timestamps).reverse();
+	//diffChart.data.labels = [].concat(Blocks).reverse();
+	diffChart.data.labels = [].concat(Timestamps).reverse();
 	diffChart.data.datasets[0].data = [].concat(Blocks).reverse();
 	diffChart.data.datasets[1].data = [].concat(Difficulties).reverse();
 	diffChart.data.datasets[2].data = [].concat(Txses).reverse();
@@ -804,4 +804,4 @@ function getReadableTime(seconds){
 }
 
 </script>
-<script src="js/Chart.bundle.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
