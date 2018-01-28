@@ -164,10 +164,10 @@ currentPage = {
         },
         update: function(){
 			renderLastBlock();
-            updateText('networkHeight', lastStats.height.toString());
-            updateText('networkTransactions', lastStats.tx_count.toString());
-            updateText('networkHashrate', getReadableHashRateString(lastStats.difficulty / blockTargetInterval));
-            updateText('networkDifficulty', getReadableDifficultyString(lastStats.difficulty, 2).toString());
+			updateText('networkHeight', lastStats.height.toString());
+			updateText('networkTransactions', lastStats.tx_count.toString());
+			updateText('networkHashrate', getReadableHashRateString(lastStats.difficulty / blockTargetInterval));
+			updateText('networkDifficulty', getReadableDifficultyString(lastStats.difficulty, 2).toString());
 			$("time.timeago").timeago();
 			getPoolTransactions();
 			var currHeight = $('#blocks_rows').children().first().data('height');
@@ -453,7 +453,7 @@ $('#goto-height').keyup(function(e){
 		
 		updateText('avgDifficulty', getReadableDifficultyString(avgDiff, 2).toString());
 		updateText('avgHashrate', getReadableHashRateString(avgDiff / blockTargetInterval));
-        updateText('blockSolveTime', getReadableTime(lastStats.difficulty / avgHashRate));
+		updateText('blockSolveTime', getReadableTime(lastStats.difficulty / avgHashRate));
 
 	}
 	
@@ -664,7 +664,7 @@ function displayDiffChart() {
 			  xAxes: [{
 				type: "time",
 				time: {
-                    parser: false,
+					parser: false,
 					unit: 'minute',
 					unitStepSize: 60,
 					round: 'second',
@@ -672,7 +672,7 @@ function displayDiffChart() {
                                         'millisecond': 'SSS [ms]',
                                         'second': 'HH:mm:ss', // 11:20:01 AM
                                         'minute': 'HH:mm', // 11:20:01 AM
-                                        'hour': 'HH:mm', // Sept 4, 5PM
+                                        'hour': 'HH', // Sept 4, 5PM
                                         'day': 'MMM Do', // Sep 4 2015
                                         'week': 'll', // Week 46, or maybe "[W]WW - YYYY" ?
                                         'month': 'MMM YYYY', // Sept 2015
@@ -689,9 +689,9 @@ function displayDiffChart() {
 					autoSkip: true,
 					//maxRotation: 90,
 					//minRotation: 90
-					//display:false
-				}
-				//display: false
+					//display: false
+				},
+				//display: false,
 			  }]
 			},
 			tooltips: {
@@ -701,7 +701,7 @@ function displayDiffChart() {
 					title: function(tooltipItem, data) {
 						var height	= data.datasets[3].data[tooltipItem[0].index];
 						var time = new Date(data.labels[tooltipItem[0].index]).toLocaleString();
-						//return 'Block №: ' + height + ' - ' + time + '';
+						//return 'Block: ' + height + ' - ' + time + '';
 						return time + '';
 					},/*
 					label: function(tooltipItem, data) { 
@@ -732,9 +732,9 @@ function displayDiffChart() {
 		}; 
 		
 	diffChart = new Chart(ctx,{
-    type: 'line',
-    data: chartData,
-    options: options
+		type: 'line',
+		data: chartData,
+		options: options
 	});
 }
 
@@ -766,7 +766,7 @@ function refreshChart() {
 		diffChart.data.datasets[1].data = diffs.reverse();
 		diffChart.data.datasets[2].data = txsnr.reverse();
 		diffChart.data.datasets[3].data = sizes.reverse();
-		
+
 		diffChart.update();
 }	
 
