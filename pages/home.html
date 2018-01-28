@@ -26,7 +26,7 @@
 				<div class="col-sm-6 col-md-6">
 					<ul class="nav nav-pills nav-stacked">
 					
-						<li><a href="#" data-toggle="tooltip" data-placement="top" data-original-title="Difficulty for next block. Ratio at which at the current hashing speed blocks will be mined with 30-second intervals."><i class="fa fa-unlock-alt"></i> Difficulty: <span id="networkDifficulty"></span></a></li>
+						<li><a href="#" data-toggle="tooltip" data-placement="top" data-original-title="Difficulty for next block. Ratio at which at the current hashing speed blocks will be mined in a 30 second interval."><i class="fa fa-unlock-alt"></i> Difficulty: <span id="networkDifficulty"></span></a></li>
 				
 						<li><a href="#" data-toggle="tooltip" data-placement="top" data-original-title="Average difficulty by last 30 blocks."><i class="fa fa-lock"></i> Average Difficulty: <span id="avgDifficulty"></span></a></li>
 					
@@ -384,11 +384,11 @@ $('#goto-height').keyup(function(e){
         row.setAttribute('data-height', block.height);
         row.setAttribute('id', 'blockRow' + block.height);
         row.setAttribute('title', block.hash);
-		var dateTime = new Date(block.timestamp * 1000).toISOString();
-		row.setAttribute('data-dt', dateTime);
+	var dateTime = formatDate(block.timestamp);
+	row.setAttribute('data-dt', dateTime);
         var columns =
             '<td>' + block.height + '</td>' +
-            '<td class="date-time">' + formatDate(block.timestamp) + ' (<time class="timeago" datetime="'+dateTime+'"></time>)</td>' +
+            '<td class="date-time">' + dateTime + ' (<time class="timeago" datetime="'+dateTime+'"></time>)</td>' +
 			'<td>' + block.cumul_size + '</td>' +
 			'<td>' + formatBlockLink(block.hash) + '</td>' +
             '<td class="blk-diff">' + block.difficulty + '</td>' +
@@ -516,8 +516,8 @@ var xhrGetPool = $.ajax({
 function displayDiffChart() {
 	var ctx = document.getElementById("difficultyChart");
 	var chartData = {
-			//labels: [].concat(Blocks).reverse(),
-			labels: [].concat(formatDate(Timestamps)).reverse(),
+			labels: [].concat(Blocks),
+			//labels: [].concat(formatDate(Timestamps)).reverse(),
 			datasets: [
 			  {
 				data: [].concat(Blocks).reverse(),
@@ -662,7 +662,7 @@ function displayDiffChart() {
 			  
 			  ],
 			  xAxes: [{
-				type: "time",
+				//type: "time",
 				time: {
 					parser: false,
 					unit: 'minute',
@@ -672,8 +672,8 @@ function displayDiffChart() {
                                         'millisecond': 'SSS [ms]',
                                         'second': 'HH:mm:ss', // 11:20:01 AM
                                         'minute': 'HH:mm', // 11:20:01 AM
-                                        'hour': 'HH', // Sept 4, 5PM
-                                        'day': 'MMM Do', // Sep 4 2015
+                                        'hour': 'HH:mm', // Sept 4, 5PM
+                                        'day': 'MMM DD', // Sep 4 2015
                                         'week': 'll', // Week 46, or maybe "[W]WW - YYYY" ?
                                         'month': 'MMM YYYY', // Sept 2015
                                         'quarter': '[Q]Q - YYYY', // Q3
@@ -689,7 +689,7 @@ function displayDiffChart() {
 					autoSkip: true,
 					//maxRotation: 90,
 					//minRotation: 90
-					//display: false
+					display: false
 				},
 				//display: false,
 			  }]
@@ -760,8 +760,8 @@ function refreshChart() {
 				sizes.push(size);				
 				times.push(time);				
 		}
-		//diffChart.data.labels = labels.reverse();
-		diffChart.data.labels = times.reverse();
+		diffChart.data.labels = labels;
+		//diffChart.data.labels = times.reverse();
 		diffChart.data.datasets[0].data = labels.reverse();
 		diffChart.data.datasets[1].data = diffs.reverse();
 		diffChart.data.datasets[2].data = txsnr.reverse();
@@ -771,8 +771,8 @@ function refreshChart() {
 }	
 
 function loadMoreChart() {
-	//diffChart.data.labels = [].concat(Blocks).reverse();
-	diffChart.data.labels = [].concat(Timestamps).reverse();
+	diffChart.data.labels = [].concat(Blocks).reverse();
+	//diffChart.data.labels = [].concat(Timestamps).reverse();
 	diffChart.data.datasets[0].data = [].concat(Blocks).reverse();
 	diffChart.data.datasets[1].data = [].concat(Difficulties).reverse();
 	diffChart.data.datasets[2].data = [].concat(Txses).reverse();
@@ -804,4 +804,4 @@ function getReadableTime(seconds){
 }
 
 </script>
-<script src="../js/Chart.bundle.min.js"></script>
+<script src="js/Chart.bundle.min.js"></script>
