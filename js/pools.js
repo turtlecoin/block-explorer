@@ -240,7 +240,7 @@ setInterval(function(){
             totalMiners += parseInt(data.pool.miners);
 
             updateText('height-'+poolName, data.network.height);
-            updateText('hashrate-'+poolName, data.pool.hashrate+'&nbsp;H/s');
+            updateText('hashrate-'+poolName, data.pool.hashrate+String.fromCharCode(160)+'H/s');
             updateText('miners-'+poolName, data.pool.miners);
             updateText('lastFound-'+poolName, datestring);
             updateText('ago-'+poolName, agostring);
@@ -275,7 +275,7 @@ setInterval(function(){
             var datestring = renderDate(d);
             var agostring = $.timeago(d);
 
-            updateText('hashrate-'+poolName, data.pool_statistics.hashRate+'&nbsp;H/s');
+            updateText('hashrate-'+poolName, data.pool_statistics.hashRate+String.fromCharCode(160)+'H/s');
             updateText('miners-'+poolName, data.pool_statistics.miners);
             // updateText('totalFee'+poolName, calculateTotalFee(data)+'%');
 
