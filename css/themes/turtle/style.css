@@ -112,6 +112,11 @@ table td {
 table {
         font-size: 12px;
 }
+
 thead {
         background-color: #1d1d1d;
+}
+
+#network-hash > thead > tr > th {
+        cursor: pointer;
 }
