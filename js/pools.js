@@ -23,6 +23,10 @@ var poolsRefreshed = 0;
 var poolsTable = document.getElementById('network-hash');
 sorttable.makeSortable(poolsTable);
 
+function strip(number, places) {
+    return (parseFloat(number).toPrecision(places));
+}
+
 var calculateTotalFee = function(config) {
     let totalFee = config.config.fee;
     for (let property in config.config.donation) {
@@ -30,7 +34,7 @@ var calculateTotalFee = function(config) {
             totalFee += config.config.donation[property];
         }
     }
-    return totalFee;
+    return strip(totalFee, 1);
 };
 
 var renderPoolRow = function(host, name, data, d) {
